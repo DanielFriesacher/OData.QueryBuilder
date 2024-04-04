@@ -46,7 +46,7 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Query
 
         public IODataQueryCollection<TEntity> Expand(Expression<Func<TEntity, object>> expand)
         {
-            var query = new ODataOptionExpandExpressionVisitor().ToQuery(expand);
+            var query = new ODataOptionExpandExpressionVisitor(_odataQueryBuilderOptions).ToQuery(expand);
 
             return Expand(query);
         }
@@ -62,7 +62,7 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Query
 
         public IODataQueryCollection<TEntity> Select(Expression<Func<TEntity, object>> select)
         {
-            var query = new ODataOptionSelectExpressionVisitor().ToQuery(select);
+            var query = new ODataOptionSelectExpressionVisitor(_odataQueryBuilderOptions).ToQuery(select);
 
             _stringBuilder.Append($"{ODataOptionNames.Select}{QuerySeparators.EqualSign}{query}{QuerySeparators.Main}");
 
@@ -71,7 +71,7 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Query
 
         public IODataQueryCollection<TEntity> OrderBy(Expression<Func<TEntity, object>> orderBy)
         {
-            var query = new ODataOptionOrderByExpressionVisitor().ToQuery(orderBy);
+            var query = new ODataOptionOrderByExpressionVisitor(_odataQueryBuilderOptions).ToQuery(orderBy);
 
             _stringBuilder.Append($"{ODataOptionNames.OrderBy}{QuerySeparators.EqualSign}{query} {QuerySorts.Asc}{QuerySeparators.Main}");
 
@@ -80,7 +80,7 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Query
 
         public IODataQueryCollection<TEntity> OrderBy(Expression<Func<TEntity, ISortFunction, object>> orderBy)
         {
-            var query = new ODataOptionOrderByExpressionVisitor().ToQuery(orderBy);
+            var query = new ODataOptionOrderByExpressionVisitor(_odataQueryBuilderOptions).ToQuery(orderBy);
 
             _stringBuilder.Append($"{ODataOptionNames.OrderBy}{QuerySeparators.EqualSign}{query}{QuerySeparators.Main}");
 
@@ -89,7 +89,7 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Query
 
         public IODataQueryCollection<TEntity> OrderByDescending(Expression<Func<TEntity, object>> orderByDescending)
         {
-            var query = new ODataOptionOrderByExpressionVisitor().ToQuery(orderByDescending);
+            var query = new ODataOptionOrderByExpressionVisitor(_odataQueryBuilderOptions).ToQuery(orderByDescending);
 
             _stringBuilder.Append($"{ODataOptionNames.OrderBy}{QuerySeparators.EqualSign}{query} {QuerySorts.Desc}{QuerySeparators.Main}");
 

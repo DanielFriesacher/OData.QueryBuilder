@@ -1,13 +1,14 @@
 ﻿using OData.QueryBuilder.Conventions.Constants;
 using OData.QueryBuilder.Extensions;
+using OData.QueryBuilder.Options;
 using System.Linq.Expressions;
 
 namespace OData.QueryBuilder.Expressions.Visitors
 {
     internal class ODataOptionExpressionVisitor : ODataExpressionVisitor
     {
-        public ODataOptionExpressionVisitor()
-            : base()
+        public ODataOptionExpressionVisitor(ODataQueryBuilderOptions odataQueryBuilderOptions)
+            : base(odataQueryBuilderOptions)
         {
         }
 

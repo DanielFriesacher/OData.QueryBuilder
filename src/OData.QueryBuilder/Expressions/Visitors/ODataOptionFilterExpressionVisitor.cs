@@ -11,16 +11,14 @@ namespace OData.QueryBuilder.Expressions.Visitors
 {
     internal class ODataOptionFilterExpressionVisitor : ODataOptionExpressionVisitor
     {
-        protected readonly ODataQueryBuilderOptions _odataQueryBuilderOptions;
         protected readonly ValueExpression _valueExpression;
 
         private bool _useParenthesis;
         private ExpressionType? _expressionType;
 
         public ODataOptionFilterExpressionVisitor(ODataQueryBuilderOptions odataQueryBuilderOptions)
-            : base()
+            : base(odataQueryBuilderOptions)
         {
-            _odataQueryBuilderOptions = odataQueryBuilderOptions;
             _valueExpression = new ValueExpression();
         }
 

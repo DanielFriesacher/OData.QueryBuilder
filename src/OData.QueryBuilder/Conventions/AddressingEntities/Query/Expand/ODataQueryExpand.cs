@@ -19,9 +19,10 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Query.Expand
         {
             _hasMultyFilters = false;
         }
+
         public IODataQueryExpand<TEntity> Expand(Expression<Func<TEntity, object>> expandNested)
         {
-            var query = new ODataOptionExpandExpressionVisitor().ToQuery(expandNested);
+            var query = new ODataOptionExpandExpressionVisitor(_odataQueryBuilderOptions).ToQuery(expandNested);
 
             _stringBuilder.Append($"{ODataOptionNames.Expand}{QuerySeparators.EqualSign}{query}{QuerySeparators.Nested}");
 
@@ -62,7 +63,7 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Query.Expand
 
         public IODataQueryExpand<TEntity> OrderBy(Expression<Func<TEntity, object>> orderByNested)
         {
-            var query = new ODataOptionOrderByExpressionVisitor().ToQuery(orderByNested);
+            var query = new ODataOptionOrderByExpressionVisitor(_odataQueryBuilderOptions).ToQuery(orderByNested);
 
             _stringBuilder.Append($"{ODataOptionNames.OrderBy}{QuerySeparators.EqualSign}{query} {QuerySorts.Asc}{QuerySeparators.Nested}");
 
@@ -71,7 +72,7 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Query.Expand
 
         public IODataQueryExpand<TEntity> OrderBy(Expression<Func<TEntity, ISortFunction, object>> orderByNested)
         {
-            var query = new ODataOptionOrderByExpressionVisitor().ToQuery(orderByNested);
+            var query = new ODataOptionOrderByExpressionVisitor(_odataQueryBuilderOptions).ToQuery(orderByNested);
 
             _stringBuilder.Append($"{ODataOptionNames.OrderBy}{QuerySeparators.EqualSign}{query}{QuerySeparators.Nested}");
 
@@ -80,7 +81,7 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Query.Expand
 
         public IODataQueryExpand<TEntity> OrderByDescending(Expression<Func<TEntity, object>> orderByDescendingNested)
         {
-            var query = new ODataOptionOrderByExpressionVisitor().ToQuery(orderByDescendingNested);
+            var query = new ODataOptionOrderByExpressionVisitor(_odataQueryBuilderOptions).ToQuery(orderByDescendingNested);
 
             _stringBuilder.Append($"{ODataOptionNames.OrderBy}{QuerySeparators.EqualSign}{query} {QuerySorts.Desc}{QuerySeparators.Nested}");
 
@@ -89,7 +90,7 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Query.Expand
 
         public IODataQueryExpand<TEntity> Select(Expression<Func<TEntity, object>> selectNested)
         {
-            var query = new ODataOptionSelectExpressionVisitor().ToQuery(selectNested);
+            var query = new ODataOptionSelectExpressionVisitor(_odataQueryBuilderOptions).ToQuery(selectNested);
 
             _stringBuilder.Append($"{ODataOptionNames.Select}{QuerySeparators.EqualSign}{query}{QuerySeparators.Nested}");
 

@@ -7,5 +7,7 @@
         public bool SuppressExceptionOfNullOrEmptyOperatorArgs { get; set; } = false;
 
         public bool UseCorrectDateTimeFormat { get; set; } = false;
+
+        public bool UseJsonPropertyAttributeNames { get; set; } = false;
     }
 }

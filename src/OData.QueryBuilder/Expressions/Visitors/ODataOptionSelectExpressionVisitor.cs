@@ -1,9 +1,11 @@
-﻿namespace OData.QueryBuilder.Expressions.Visitors
+﻿using OData.QueryBuilder.Options;
+
+namespace OData.QueryBuilder.Expressions.Visitors
 {
     internal class ODataOptionSelectExpressionVisitor: ODataOptionExpressionVisitor
     {
-        public ODataOptionSelectExpressionVisitor()
-            : base()
+        public ODataOptionSelectExpressionVisitor(ODataQueryBuilderOptions odataQueryBuilderOptions)
+            : base(odataQueryBuilderOptions)
         {
         }
     }

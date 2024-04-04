@@ -24,7 +24,7 @@ namespace OData.QueryBuilder.Conventions.AddressingEntities.Resources
                 throw new ArgumentNullException(nameof(resource), "Resource name is null");
             }
 
-            var query = new ODataResourceExpressionVisitor().ToQuery(resource);
+            var query = new ODataResourceExpressionVisitor(_odataQueryBuilderOptions).ToQuery(resource);
 
             _stringBuilder.Append(query);
 

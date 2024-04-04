@@ -1,5 +1,6 @@
 ﻿using OData.QueryBuilder.Conventions.Constants;
 using OData.QueryBuilder.Conventions.Functions;
+using OData.QueryBuilder.Options;
 using System;
 using System.Linq.Expressions;
 
@@ -7,8 +8,8 @@ namespace OData.QueryBuilder.Expressions.Visitors
 {
     internal class ODataOptionOrderByExpressionVisitor : ODataOptionExpressionVisitor
     {
-        public ODataOptionOrderByExpressionVisitor()
-            : base()
+        public ODataOptionOrderByExpressionVisitor(ODataQueryBuilderOptions odataQueryBuilderOptions)
+            : base(odataQueryBuilderOptions)
         {
         }
 
