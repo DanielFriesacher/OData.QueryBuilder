@@ -4,7 +4,7 @@
 		<IsPackable>true</IsPackable>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFramework>netstandard2.1</TargetFramework>
 		<PackageId>OData.QueryBuilder</PackageId>
 		<PackageVersion>$(PackageVersion)</PackageVersion>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
